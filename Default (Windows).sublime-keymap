@@ -1,0 +1,4 @@
+[
+	{"keys": ["ctrl+'","ctrl+h"], "command": "ascii_to_hex"},
+	{"keys": ["ctrl+h","ctrl+'"], "command": "hex_to_ascii"}
+]

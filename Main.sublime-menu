@@ -1,0 +1,10 @@
+[  
+    {  
+        "id": "selection",  
+        "children":  
+        [  
+            {"command":  "ascii_to_hex"},
+            {"command":  "hex_to_ascii"}
+                    ]  
+    }    
+]

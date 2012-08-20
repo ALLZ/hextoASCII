@@ -1,0 +1,10 @@
+[  
+	{"command": "dec_to_hex"},
+	{"command": "dec_to_bin"},
+	{"command": "bin_to_dec"},
+	{"command": "hex_to_dec"},
+	{"command": "ascii_to_hex"},
+	{"command": "hex_to_ascii"}
+
+
+]  
