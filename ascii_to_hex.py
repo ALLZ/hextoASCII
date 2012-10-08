@@ -5,7 +5,6 @@ class AsciiToHexCommand(sublime_plugin.TextCommand):
 		v = self.view
 		astr = v.substr(v.sel()[0])
 		hx = ''
-		l = True
 		for i in astr:
 			new = asciihexList.ls.get(i,'error')          # Not good, but
 			if new != 'error':                            # all this
