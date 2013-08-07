@@ -1,23 +1,34 @@
-import sublime, sublime_plugin, hexasciiList
+import sublime
+import sublime_plugin
+
 
 class HexToAsciiCommand(sublime_plugin.TextCommand):
+
     def run(self, edit):
+        hexdig = '0123456789abcdefABCDEF '
         v = self.view
-        hx = v.substr(v.sel()[0])
-        hx = hx.strip()
-        astr = ''
-        if ' ' in hx: t=1
-        else: t=2
-        for i in xrange(0,len(hx)-1,t):
-            if (hx[i] == ' ') or (hx[i+1] == ' '): continue #use in "A3 2B 41" view
-            st = hx[i]+hx[i+1]
-            new = hexasciiList.ls.get(st,'error')
-            if new != 'error':
-                astr = astr + new
-                v.replace(edit, v.sel()[0], astr)
-                if (len(hx)%2 != 0) and (t == 2):
-                    sublime.status_message("Perhaps we lost key \""+hx[len(hx)-1]+"\" in the end of line?")
+        reglist = list(v.sel())
+        for item in reglist:
+            hx = v.substr(v.sel()[reglist.index(item)])
+            hx = hx.strip('{} .,')
+            if ',' in hx:
+                hx = hx.replace(', ', ' ')
+                hx = hx.replace(',', ' ')
+            if '0x' in hx:
+                hx = hx.replace('0x', '')
+            astr = ''
+            if ' ' in hx:
+                t = 1
             else:
-                sublime.status_message("Wrong character \""+hx[i]+hx[i+1]+"\"!")
-                sublime.error_message("Wrong character \""+hx[i]+hx[i+1]+"\"!")
-                break
+                t = 2
+            if (len(hx) % 2 != 0) and (t == 2):
+                sublime.status_message("Perhaps we lost key \"%s\" in the end of line?" % hx[len(hx) - 1])
+            for i in xrange(0, len(hx)-1, t):
+                if not(hx[i] in hexdig):
+                    sublime.error_message("\"%s\" isn't a part of hexadecimal number!" % hx[i])
+                    break
+                if (hx[i] == ' ') or (hx[i+1] == ' '):
+                    continue
+                st = hx[i]+hx[i+1]
+                astr = astr + chr(int(st, 16))
+                v.replace(edit, v.sel()[reglist.index(item)], astr)
