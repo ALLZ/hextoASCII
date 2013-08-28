@@ -1,6 +1,6 @@
-# Sublime Text 2 ASCII<->Hex converter Plugin #
+# Sublime Text 2/3 ASCII<->Hex converter Plugin #
 
-Sublime Text 2 plugin to convert ASCII->Hex and Hex->ASCII
+Sublime Text plugin to convert ASCII->Hex and Hex->ASCII.
 
 ## Usage ##
 
@@ -20,5 +20,6 @@ ASCII->Hex  super+',  super+h
 Hex->ASCII  super+h,  super+'   
 
 ## Update ##
-Thanks to D.Y. Kim for 'c arrays' idea, it was implemented by option)  
-It works for multiple selections, too) But still may be some glitchces with tabs(\t) and breaklines(&lt;br&gt;)
+Thanks to D.Y. Kim for 'c arrays' idea, it was implemented by option).  
+It works for multiple selections, too) But still may be some glitchces with tabs(\t) and breaklines(&lt;br&gt;).   
+Now it works correctly both with ST2 and ST3.
