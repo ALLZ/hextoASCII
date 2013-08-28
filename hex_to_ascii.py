@@ -23,9 +23,9 @@ class HexToAsciiCommand(sublime_plugin.TextCommand):
                 t = 2
             if (len(hx) % 2 != 0) and (t == 2):
                 sublime.status_message("Perhaps we lost key \"%s\" in the end of line?" % hx[len(hx) - 1])
-            for i in xrange(0, len(hx)-1, t):
-                if not(hx[i] in hexdig):
-                    sublime.error_message("\"%s\" isn't a part of hexadecimal number!" % hx[i])
+            for i in range(0, len(hx)-1, t):
+                if not(hx[i] in hexdig) or not(hx[i+1] in hexdig):
+                    sublime.error_message("\"%s\" isn't a part of hexadecimal number!" % hx[i:i+2])
                     break
                 if (hx[i] == ' ') or (hx[i+1] == ' '):
                     continue
