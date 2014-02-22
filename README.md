@@ -1,11 +1,10 @@
-# Sublime Text 2/3 ASCII<->Hex converter Plugin #
+# Sublime Text 2 ASCII<->Hex converter Plugin #
 
-Sublime Text plugin to convert ASCII->Hex and Hex->ASCII.
+Sublime Text 2 plugin to convert ASCII->Hex and Hex->ASCII
 
 ## Usage ##
 
-Just select the string, then use key bindings, menu "Selection" or context menu to convert it.  
-If you want to change the view of hexadecimal numbers, just open "HextoASCII.sublime-settings" file and change "literals" option.
+Just select the string, then use key bindings, menu "Selection" or context menu to convert it.
 
 ## Key bindings ##
 
@@ -19,7 +18,5 @@ Hex->ASCII  ctrl+h,  ctrl+'
 ASCII->Hex  super+',  super+h  
 Hex->ASCII  super+h,  super+'   
 
-## Update ##
-Thanks to D.Y. Kim for 'c arrays' idea, it was implemented by option).  
-It works for multiple selections, too) But still may be some glitchces with tabs(\t) and breaklines(&lt;br&gt;).   
-Now it works correctly both with ST2 and ST3.
+## Some isssues ##
+If you really want to help me (it will be very nice ^^'), just see this code and mail me(sazalexnev @ gmail.com), how I can improve it. This "big plugin" is just pre-relise, some kind of, you know ;)

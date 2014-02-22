@@ -7,10 +7,10 @@ class AsciiToHexCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         v = self.view
         reglist = list(v.sel())
-        for item in reglist:
+        for j in range(0, len(reglist)):
             self.settings = sublime.load_settings("HextoASCII.sublime-settings")
             setting = self.settings.get("literals")
-            astr = v.substr(v.sel()[reglist.index(item)])
+            astr = v.substr(v.sel()[j])
             hx = ''
             if setting == 4:
                 hx = '{'
@@ -26,4 +26,4 @@ class AsciiToHexCommand(sublime_plugin.TextCommand):
                 hx = hx + new
             if setting == 4:
                 hx = hx[:len(hx)-2] + '}'
-            v.replace(edit, v.sel()[reglist.index(item)], hx.strip())
+            v.replace(edit, v.sel()[j], hx.strip())

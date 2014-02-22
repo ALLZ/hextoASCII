@@ -8,8 +8,8 @@ class HexToAsciiCommand(sublime_plugin.TextCommand):
         hexdig = '0123456789abcdefABCDEF '
         v = self.view
         reglist = list(v.sel())
-        for item in reglist:
-            hx = v.substr(v.sel()[reglist.index(item)])
+        for j in range(0, len(reglist)):
+            hx = v.substr(v.sel()[j])
             hx = hx.strip('{} .,')
             if ',' in hx:
                 hx = hx.replace(', ', ' ')
@@ -31,4 +31,4 @@ class HexToAsciiCommand(sublime_plugin.TextCommand):
                     continue
                 st = hx[i]+hx[i+1]
                 astr = astr + chr(int(st, 16))
-                v.replace(edit, v.sel()[reglist.index(item)], astr)
+                v.replace(edit, v.sel()[j], astr)
